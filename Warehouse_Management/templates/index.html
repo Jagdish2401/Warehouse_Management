@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        📦 Warehouse Management System
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('inventory') }}">Inventory</a></li>
+            <li><a href="{{ url_for('add_product') }}">Add Product</a></li>
+            <li><a href="{{ url_for('manage_products') }}">Manage Products</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="container">
+            <h2>Welcome to the Warehouse Management System</h2>
+            <p>Manage your inventory efficiently with real-time updates and stock tracking.</p>
+            
+            <a href="{{ url_for('inventory') }}" class="btn">📋 View Inventory</a>
+            <a href="{{ url_for('add_product') }}" class="btn">➕ Add Product</a>
+        </div>
+    </main>
+
+    <footer>
+        © 2025 Warehouse Management System | Designed for Efficiency
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

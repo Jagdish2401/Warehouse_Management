@@ -1,0 +1,238 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #007bff, #6610f2);
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+
+/* Header */
+header {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Navigation Bar */
+nav {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    border-radius: 10px;
+    margin: 15px auto;
+    max-width: 800px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #ffdd57;
+    text-shadow: 0px 0px 5px rgba(255, 221, 87, 0.8);
+}
+
+/* Main Content */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.25);
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+}
+
+/* Inventory Table */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+th {
+    background: rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+}
+
+tr:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transition: background 0.3s ease-in-out;
+}
+
+/* Highlight Low Stock Items */
+.low-stock {
+    background-color: rgba(255, 99, 71, 0.7) !important;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 20px;
+    background: #ffdd57;
+    color: #333;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #ffd700;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(255, 221, 87, 0.6);
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: auto;
+}
+
+input, select {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-align: center;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        max-width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    th, td {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+/* Low stock warning */
+.low-stock {
+    background-color: rgba(255, 99, 71, 0.6); /* Tomato color */
+    font-weight: bold;
+    color: white;
+    animation: blink 1s infinite alternate; /* Blinking effect */
+}
+
+/* Blinking animation */
+@keyframes blink {
+    from { background-color: rgba(255, 99, 71, 0.6); }
+    to { background-color: rgba(255, 0, 0, 0.8); }
+}
+
+.search-sort-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+}
+
+.search-input {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-search {
+    background-color: royalblue;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-search:hover {
+    background-color: navy;
+}

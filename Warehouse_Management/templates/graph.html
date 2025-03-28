@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Graph</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>Warehouse Inventory Graph</header>
+    <main>
+        <div class="container">
+            <h2>📊 Inventory Overview</h2>
+            <div class="graph-container">
+                {% if graph_url %}
+                    <img src="{{ graph_url }}" alt="Inventory Graph">
+                {% else %}
+                    <p>No data available to display.</p>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+</body>
+</html>

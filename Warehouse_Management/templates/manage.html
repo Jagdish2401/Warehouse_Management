@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        🛠️ Manage Warehouse Products
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/inventory">Inventory</a></li>
+            <li><a href="/add">Add Product</a></li>
+            <li><a href="/graph">View Graph</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="container">
+            <h2>Manage Products</h2>
+
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product[0] }}</td>
+                    <td>{{ product[1] }}</td>
+                    <td>{{ product[2] }}</td>
+                    <td>${{ product[3] }}</td>
+                    <td>
+                        <a href="/update/{{ product[0] }}" class="btn">✏ Edit</a>
+                        <a href="/delete/{{ product[0] }}" class="btn danger">🗑 Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        © 2025 Warehouse Management System
+    </footer>
+
+</body>
+</html>

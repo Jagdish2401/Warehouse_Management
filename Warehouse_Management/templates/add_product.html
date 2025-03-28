@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product - Warehouse</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        ➕ Add Product
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/">🏠 Home</a></li>
+            <li><a href="/inventory">📋 Inventory</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="container">
+            <h2>Add New Product</h2>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <form action="/add" method="POST">
+                <label for="name">Product Name:</label>
+                <input type="text" name="name" placeholder="Enter product name" required>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" name="quantity" placeholder="Enter quantity" required>
+
+                <label for="price">Price (₹):</label>
+                <input type="number" step="0.01" name="price" placeholder="Enter price" required>
+
+                <button type="submit" class="btn">✅ Add Product</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        © 2025 Warehouse Management System
+    </footer>
+
+</body>
+</html>

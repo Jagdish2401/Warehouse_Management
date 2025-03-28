@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/style.css') }}">
+</head>
+<body>
+
+<header>Warehouse Inventory</header>
+
+<nav>
+    <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('inventory') }}" class="active">Inventory</a></li>
+        <li><a href="{{ url_for('add_product') }}">Add Product</a></li>
+        <li><a href="{{ url_for('graph') }}">View Graph</a></li>
+    </ul>
+</nav>
+
+<main>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            <div class="alert-container">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <div class="container">
+        <h2>Inventory List</h2>
+
+        <!-- Search Form -->
+        <form method="GET" action="{{ url_for('inventory') }}">
+            <input type="text" name="search" placeholder="Search product..." value="{{ search_query }}">
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Sorting Buttons -->
+        <div class="sort-options">
+            <span>Sort by Price:</span>
+            <a href="{{ url_for('inventory', sort='asc') }}" class="btn {% if sort_order == 'asc' %}active{% endif %}">Low to High</a>
+            <a href="{{ url_for('inventory', sort='desc') }}" class="btn {% if sort_order == 'desc' %}active{% endif %}">High to Low</a>
+        </div>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+            {% for product in products %}
+            <tr class="{% if product[2] < 5 %}low-stock{% endif %}">
+                <td>{{ product[0] }}</td>
+                <td>{{ product[1] }}</td>
+                <td>{{ product[2] }}</td>
+                <td>₹{{ product[3] }}</td>
+                <td>
+                    <a href="{{ url_for('update_product', product_id=product[0]) }}" class="btn btn-edit">Edit</a>
+                    <a href="{{ url_for('delete_product', product_id=product[0]) }}" class="btn btn-delete" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</main>
+
+<footer>&copy; 2025 Warehouse Management System</footer>
+
+</body>
+</html>
